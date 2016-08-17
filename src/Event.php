@@ -113,10 +113,10 @@ class Event
         $googleEvents = $googleCalendar->listEvents($startDateTime, $endDateTime, $queryParameters);
 
         return collect($googleEvents)
-            ->map(function (Google_Service_Calendar_Event $event) use ($calendarId) {
+            ->map(function ($event) use ($calendarId) {
                 return Event::createFromGoogleCalendarEvent($event, $calendarId);
             })
-            ->sortBy(function (Event $event) {
+            ->sortBy(function ($event) {
                 return $event->sortDate;
             })
             ->values();
