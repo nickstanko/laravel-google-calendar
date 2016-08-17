@@ -54,7 +54,7 @@ class Event
     {
         $name = $this->getFieldName($name);
 
-        if ($name === 'sortDate') {
+        if ($name == 'sortDate') {
             return $this->getSortDate();
         }
 
@@ -203,7 +203,7 @@ class Event
             'endDate' => 'end.date',
             'startDateTime' => 'start.dateTime',
             'endDateTime' => 'end.dateTime',
-        ][$name];
+        ];
     }
 
     public function getSortDate()
