@@ -70,7 +70,7 @@ class GoogleCalendar
      *
      * @return \Google_Service_Calendar_Event
      */
-    public function getEvent(string $eventId)
+    public function getEvent($eventId)
     {
         return $this->calendarService->events->get($this->calendarId, $eventId);
     }
