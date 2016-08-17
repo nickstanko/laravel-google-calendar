@@ -203,7 +203,7 @@ class Event
             'endDate' => 'end.date',
             'startDateTime' => 'start.dateTime',
             'endDateTime' => 'end.dateTime',
-        ][$name] ?? $name;
+        ]([$name]) ? [$name] : $name;
     }
 
     public function getSortDate()
