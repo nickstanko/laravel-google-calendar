@@ -116,9 +116,11 @@ class Event
             ->map(function ($event) use ($calendarId) {
                 return Event::createFromGoogleCalendarEvent($event, $calendarId);
             })
+            /*
             ->sortBy(function ($event) {
-                return $event['sortDate'];
+                return $event->sortDate;
             })
+            */
             ->values();
     }
 
