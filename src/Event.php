@@ -203,6 +203,7 @@ class Event
             'name' => 'summary',
             'description' => 'description',
             'location'  => 'location',
+            'htmlLink' => 'htmlLink',
             'startDate' => 'start.date',
             'endDate' => 'end.date',
             'startDateTime' => 'start.dateTime',
