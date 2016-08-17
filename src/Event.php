@@ -199,6 +199,7 @@ class Event
     protected function getFieldName($name)
     {
         return [
+            'id' => 'id',
             'name' => 'summary',
             'description' => 'description',
             'location'  => 'location',
