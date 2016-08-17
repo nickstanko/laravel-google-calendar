@@ -203,7 +203,7 @@ class Event
             'endDate' => 'end.date',
             'startDateTime' => 'start.dateTime',
             'endDateTime' => 'end.dateTime',
-        ]
+        ];
     }
 
     public function getSortDate()
