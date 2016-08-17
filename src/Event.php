@@ -117,7 +117,7 @@ class Event
                 return Event::createFromGoogleCalendarEvent($event, $calendarId);
             })
             ->sortBy(function ($event) {
-                return $event->sortDate;
+                return $event['sortDate'];
             })
             ->values();
     }
