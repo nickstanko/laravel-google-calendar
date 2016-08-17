@@ -201,6 +201,7 @@ class Event
         return [
             'name' => 'summary',
             'description' => 'description',
+            'location'  => 'location',
             'startDate' => 'start.date',
             'endDate' => 'end.date',
             'startDateTime' => 'start.dateTime',
