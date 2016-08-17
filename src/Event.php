@@ -105,7 +105,7 @@ class Event
     public static function get(
         $startDateTime = null,
         $endDateTime = null,
-        Parameters = [],
+        $queryParameters = [],
         $calendarId = null
     ) {
         $googleCalendar = static::getGoogleCalendar($calendarId);
