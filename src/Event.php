@@ -153,7 +153,7 @@ class Event
      */
     public function delete(string $eventId = null)
     {
-        $this->getGoogleCalendar($this->calendarId)->deleteEvent($eventId ?? $this->id);
+        $this->getGoogleCalendar($this->calendarId)->deleteEvent(($eventId) ? $eventId : $this->id);
     }
 
     /**
@@ -163,8 +163,7 @@ class Event
      */
     protected static function getGoogleCalendar($calendarId = null)
     {
-        $calendarId = $calendarId ?? config('laravel-google-calendar.calendar_id');
-
+        $calendarId = ($calendarId) ? $calendarId : config('laravel-google-calendar.calendar_id');
         return GoogleCalendarFactory::createForCalendarId($calendarId);
     }
 
