@@ -27,7 +27,7 @@ class Event
         return $event;
     }
 
-    public static function create(array $properties, string $calendarId = null)
+    public static function create($properties, $calendarId = null)
     {
         $event = new static();
 
@@ -103,10 +103,10 @@ class Event
      * @return \Illuminate\Support\Collection
      */
     public static function get(
-        Carbon $startDateTime = null,
-        Carbon $endDateTime = null,
-        array $queryParameters = [],
-        string $calendarId = null
+        $startDateTime = null,
+        $endDateTime = null,
+        Parameters = [],
+        $calendarId = null
     ) {
         $googleCalendar = static::getGoogleCalendar($calendarId);
 
@@ -151,7 +151,7 @@ class Event
     /**
      * @param string $eventId
      */
-    public function delete(string $eventId = null)
+    public function delete($eventId = null)
     {
         $this->getGoogleCalendar($this->calendarId)->deleteEvent(($eventId) ? $eventId : $this->id);
     }
@@ -171,7 +171,7 @@ class Event
      * @param string         $name
      * @param \Carbon\Carbon $date
      */
-    protected function setDateProperty(string $name, Carbon $date)
+    protected function setDateProperty($name, $date)
     {
         $eventDateTime = new Google_Service_Calendar_EventDateTime();
 
@@ -194,7 +194,7 @@ class Event
         }
     }
 
-    protected function getFieldName(string $name)
+    protected function getFieldName($name)
     {
         return [
             'name' => 'summary',
