@@ -84,12 +84,12 @@ class Event
         array_set($this->googleEvent, $name, $value);
     }
 
-    public function exists(): bool
+    public function exists()
     {
         return $this->id != '';
     }
 
-    public function isAllDayEvent(): bool
+    public function isAllDayEvent()
     {
         return is_null($this->googleEvent['start']['dateTime']);
     }
@@ -107,7 +107,7 @@ class Event
         Carbon $endDateTime = null,
         array $queryParameters = [],
         string $calendarId = null
-    ): Collection {
+    ) {
         $googleCalendar = static::getGoogleCalendar($calendarId);
 
         $googleEvents = $googleCalendar->listEvents($startDateTime, $endDateTime, $queryParameters);
@@ -128,7 +128,7 @@ class Event
      *
      * @return \Spatie\GoogleCalendar\Event
      */
-    public static function find($eventId, $calendarId = null): Event
+    public static function find($eventId, $calendarId = null)
     {
         $googleCalendar = static::getGoogleCalendar($calendarId);
 
@@ -137,7 +137,7 @@ class Event
         return static::createFromGoogleCalendarEvent($googleEvent, $calendarId);
     }
 
-    public function save(): Event
+    public function save()
     {
         $method = $this->exists() ? 'updateEvent' : 'insertEvent';
 
@@ -195,7 +195,7 @@ class Event
         }
     }
 
-    protected function getFieldName(string $name): string
+    protected function getFieldName(string $name)
     {
         return [
             'name' => 'summary',
@@ -207,7 +207,7 @@ class Event
         ][$name] ?? $name;
     }
 
-    public function getSortDate(): string
+    public function getSortDate()
     {
         if ($this->startDate) {
             return $this->startDate;
